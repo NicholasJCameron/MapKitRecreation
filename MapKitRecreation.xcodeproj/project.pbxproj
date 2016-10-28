@@ -12,6 +12,9 @@
 		9F31DD7E1DC228F40092BD7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F31DD7C1DC228F40092BD7A /* Main.storyboard */; };
 		9F31DD801DC228F40092BD7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F31DD7F1DC228F40092BD7A /* Assets.xcassets */; };
 		9F31DD831DC228F40092BD7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F31DD811DC228F40092BD7A /* LaunchScreen.storyboard */; };
+		9F31DD8C1DC22EB10092BD7A /* GeoticationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F31DD8B1DC22EB10092BD7A /* GeoticationsViewController.swift */; };
+		9F31DD8E1DC238080092BD7A /* AddGeotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F31DD8D1DC238080092BD7A /* AddGeotification.swift */; };
+		9F31DD901DC23DDC0092BD7A /* AddBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F31DD8F1DC23DDC0092BD7A /* AddBusiness.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		9F31DD7F1DC228F40092BD7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F31DD821DC228F40092BD7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F31DD841DC228F40092BD7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F31DD8B1DC22EB10092BD7A /* GeoticationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoticationsViewController.swift; sourceTree = "<group>"; };
+		9F31DD8D1DC238080092BD7A /* AddGeotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGeotification.swift; sourceTree = "<group>"; };
+		9F31DD8F1DC23DDC0092BD7A /* AddBusiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBusiness.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 			children = (
 				9F31DD781DC228F40092BD7A /* AppDelegate.swift */,
 				9F31DD7A1DC228F40092BD7A /* ViewController.swift */,
+				9F31DD8B1DC22EB10092BD7A /* GeoticationsViewController.swift */,
+				9F31DD8D1DC238080092BD7A /* AddGeotification.swift */,
+				9F31DD8F1DC23DDC0092BD7A /* AddBusiness.swift */,
 				9F31DD7C1DC228F40092BD7A /* Main.storyboard */,
 				9F31DD7F1DC228F40092BD7A /* Assets.xcassets */,
 				9F31DD811DC228F40092BD7A /* LaunchScreen.storyboard */,
@@ -138,6 +147,9 @@
 			files = (
 				9F31DD7B1DC228F40092BD7A /* ViewController.swift in Sources */,
 				9F31DD791DC228F40092BD7A /* AppDelegate.swift in Sources */,
+				9F31DD8C1DC22EB10092BD7A /* GeoticationsViewController.swift in Sources */,
+				9F31DD8E1DC238080092BD7A /* AddGeotification.swift in Sources */,
+				9F31DD901DC23DDC0092BD7A /* AddBusiness.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
