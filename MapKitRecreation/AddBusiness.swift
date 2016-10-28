@@ -11,12 +11,12 @@ import MapKit
 import CoreLocation
 
 
-
 struct BusinessDetails {
     static let latitude = "latitude"
     static let longitude = "longitude"
     static let businessName = "nicks shop"
     static let businessDescription = "cafe"
+    static let pinColor = "red";
 }
 
 
@@ -26,7 +26,7 @@ class AddBusiness: NSObject,NSCoding,MKAnnotation {
     var coordinate : CLLocationCoordinate2D
     var businessName : String
     var businessDescription : String
-    
+    var pinColor : String;
     
     
     var title: String? {
@@ -48,10 +48,11 @@ class AddBusiness: NSObject,NSCoding,MKAnnotation {
     
     
     ///Constructor
-    init(coordinate: CLLocationCoordinate2D, businessName: String, businessDescription: String) {
+    init(coordinate: CLLocationCoordinate2D, businessName: String, businessDescription: String, pinColor:String) {
         self.coordinate = coordinate
         self.businessName = businessName
         self.businessDescription = businessDescription
+        self.pinColor = pinColor
     }
  
     
@@ -62,6 +63,7 @@ class AddBusiness: NSObject,NSCoding,MKAnnotation {
         coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         businessDescription = decoder.decodeObject(forKey: BusinessDetails.businessDescription) as! String
         businessName = decoder.decodeObject(forKey: BusinessDetails.businessName) as! String
+        pinColor = decoder.decodeObject(forKey: String(describing: BusinessDetails.pinColor)) as! String
     }
     
     func encode(with coder: NSCoder) {
@@ -69,10 +71,7 @@ class AddBusiness: NSObject,NSCoding,MKAnnotation {
         coder.encode(coordinate.longitude, forKey: BusinessDetails.longitude)
         coder.encode(businessName, forKey: BusinessDetails.businessName)
         coder.encode(businessDescription, forKey: BusinessDetails.businessDescription)
-      
+        coder.encode(pinColor, forKey: BusinessDetails.pinColor)
     }
 
-    
-    
-    
 }//End of class

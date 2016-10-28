@@ -11,7 +11,7 @@ import MapKit;
 import CoreLocation
 
 struct PreferencesKeys {
-    static let savedItems = "savedItemss"
+    static let savedItems = "itemsSaved"
 }
 
 
@@ -49,7 +49,8 @@ class GeoticationsViewController: UIViewController {
         BusinessLocations.append(business)
         mapKit.addAnnotation(business)
         
-       // addRadiusOverlay(forGeotification: business)
+        
+        // addRadiusOverlay(forGeotification: business)
         updateGeotificationsCount()
     }
     
@@ -106,9 +107,9 @@ extension GeoticationsViewController: AddGeotificationDelegate {
     
     func addGeotificationViewController(controller: AddGeotification, didAddCoordinate coordinate:
        
-        CLLocationCoordinate2D, businessName: String, businessDescription: String) {
+        CLLocationCoordinate2D, businessName: String, businessDescription: String,pinColor:String) {
         controller.dismiss(animated: true, completion: nil)
-        let geotification = AddBusiness(coordinate: coordinate, businessName: businessName, businessDescription: businessDescription)
+        let geotification = AddBusiness(coordinate: coordinate, businessName: businessName, businessDescription: businessDescription,pinColor: pinColor)
         add(business: geotification)
         saveAllGeotifications()
     }
@@ -144,16 +145,30 @@ extension GeoticationsViewController: AddGeotificationDelegate {
             let identifier = "myGeotifications"
             if annotation is AddBusiness {
                 var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+                
+                //Figure out how to add different color pins into database
+                for biz in BusinessLocations {
+                    annotationView?.pinTintColor = UIColorFromRGB(color: biz.pinColor)
+                }
+                    
+                
                 if annotationView == nil {
                     annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                     //set to something
                     annotationView?.canShowCallout = true
                     
+             
+                    
+                    //Figure out how to add different color pins into database
                     
                     
-                    annotationView?.pinTintColor = UIColorFromRGB()
-                    
-                    
+                    /// SO THIS IS WHATS HAPPENING
+                    //WHEN IT LOADS IT KEEPS ON ASSIGNING ANNOTIATION VIEW THE VALUE
+                    //BUT ONLY RETURNS THE LAST ONE.
+                    for biz in BusinessLocations {
+                        annotationView?.pinTintColor = UIColorFromRGB(color: biz.pinColor)
+                    }
+                  
                     
                     let removeButton = UIButton(type: .custom)
                     removeButton.frame = CGRect(x: 0, y: 0, width: 23, height: 23)
@@ -179,13 +194,34 @@ extension GeoticationsViewController: AddGeotificationDelegate {
 //            return MKOverlayRenderer(overlay: overlay)
 //        }
 //        
-        func UIColorFromRGB() -> UIColor {
+        
+        func UIColorFromRGB(color: String) -> UIColor {
+            
+            
+            if(color == "red"){
+               return UIColor.red
+            }else if(color == "green"){
+              return UIColor.green
+            }else if (color == "purple"){
+                return UIColor.purple
+            }else if(color == "white"){
+                return UIColor.white
+            }else if(color == "black"){
+                return UIColor.black
+            }else if(color == "orange"){
+                return UIColor.orange
+            }else if(color == "yellow"){
+                return UIColor.yellow
+            }else if(color == "brown"){
+                return UIColor.brown
+            }else{
             return UIColor(
                 red: CGFloat((235)) / 255.0,
                 green: CGFloat((192)) / 255.0,
                 blue: CGFloat(73) / 255.0,
                 alpha: CGFloat(1.0)
             )
+            }
         }
         func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
             // Delete geotification
