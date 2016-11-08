@@ -16,13 +16,15 @@ struct PreferencesKeys {
 
 
 
-
-class GeoticationsViewController: UIViewController {
+var pinNumber = Int();
+class GeoticationsViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var mapKit: MKMapView!
     
     var BusinessLocations : [AddBusiness] = []
 
+    ///TRYING TO DO SEARCH FUNCTIONALITY
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
 //MAPP LOAD LOCATION
@@ -45,6 +47,9 @@ class GeoticationsViewController: UIViewController {
     }
     
     
+    @IBAction func Search(_ sender: Any) {
+       
+    }
     func add(business: AddBusiness) {
         BusinessLocations.append(business)
         mapKit.addAnnotation(business)
@@ -142,6 +147,7 @@ extension GeoticationsViewController: AddGeotificationDelegate {
     extension GeoticationsViewController: MKMapViewDelegate {
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            pinNumber = BusinessLocations.count;
             let identifier = "myGeotifications"
             if annotation is AddBusiness {
                 var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
@@ -157,7 +163,7 @@ extension GeoticationsViewController: AddGeotificationDelegate {
                     //set to something
                     annotationView?.canShowCallout = true
                     
-             
+                    
                     
                     //Figure out how to add different color pins into database
                     
@@ -167,6 +173,8 @@ extension GeoticationsViewController: AddGeotificationDelegate {
                     //BUT ONLY RETURNS THE LAST ONE.
                     for biz in BusinessLocations {
                         annotationView?.pinTintColor = UIColorFromRGB(color: biz.pinColor)
+                        
+                        
                     }
                   
                     
@@ -194,6 +202,14 @@ extension GeoticationsViewController: AddGeotificationDelegate {
 //            return MKOverlayRenderer(overlay: overlay)
 //        }
 //        
+        
+        func CheckPinColor()-> UIColor{
+            
+            
+            
+            
+            return UIColor.red
+        }
         
         func UIColorFromRGB(color: String) -> UIColor {
             

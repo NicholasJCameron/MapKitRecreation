@@ -10,8 +10,6 @@ import UIKit
 import MapKit
 
 
-
-
 protocol AddGeotificationDelegate {
     
     func addGeotificationViewController(controller: AddGeotification, didAddCoordinate coordinate: CLLocationCoordinate2D,
